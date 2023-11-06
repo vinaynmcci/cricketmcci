@@ -220,7 +220,7 @@ VERSION_ID    = ""
 VERSION_COPY  = "\nCopyright "+u"\u00A9"+" 2020-23\nMCCI Corporation"
 VERSION_STR = "Version "+APP_VERSION
 
-AUTO_STR = "v4.2.0"
+AUTO_STR = "v4.3.0"
 
 
 ##############################################################################
