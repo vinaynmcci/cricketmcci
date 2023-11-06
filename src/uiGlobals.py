@@ -23,12 +23,15 @@
 ##############################################################################
 # Lib imports
 import wx
+import webbrowser
+import os
+import requests
 
 ##############################################################################
 # GLOBAL VARIABLES
 ##############################################################################
 APP_NAME = "Cricket"
-APP_VERSION = "4.0.0"
+APP_VERSION = "4.1.0"
 
 # StatusBar ID
 SB_PORT_ID   = 0
@@ -221,6 +224,42 @@ VERSION_STR = "Version "+APP_VERSION
 ##############################################################################
 # GLOBAL FUNCTIONS
 ##############################################################################
+def check_version():
+    
+    api_url = f"https://api.github.com/repos/vinaynmcci/cricketmcci/releases/latest"
+    response = requests.get(api_url)
+
+    
+    if response.status_code == 200:
+        release_info = response.json()
+        latest_version = release_info["tag_name"]
+
+        if latest_version:
+            if latest_version > VERSION_STR:
+                app = wx.App(False)
+                dlg = wx.MessageDialog(
+                    None,
+                    f"MCCI Cricket UI latest version ({latest_version}) is availble in Github, Please click on OK for more details",
+                    "AutoUpdate Notification",
+                    style=wx.OK | wx.CANCEL ,
+                )
+                result = dlg.ShowModal()
+                if result == wx.ID_OK:
+                    webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.1.0")
+                    dlg.Destroy()
+                    # 
+                elif result == wx.ID_NO:
+                    # Implement action for clicking "No" here
+                    pass
+                    dlg.Destroy()
+            else:
+                pass
+               
+                
+    else:
+        print(f"Failed to retrieve information from GitHub. Status code: {response.status_code}")
+
+check_version()
 class NumericValidator(wx.Validator):
     """
     Validator associated NumericValidator Control.
