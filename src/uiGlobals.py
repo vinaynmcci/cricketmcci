@@ -220,6 +220,8 @@ VERSION_ID    = ""
 VERSION_COPY  = "\nCopyright "+u"\u00A9"+" 2020-23\nMCCI Corporation"
 VERSION_STR = "Version "+APP_VERSION
 
+AUTO_STR = "v4.2.0"
+
 
 ##############################################################################
 # GLOBAL FUNCTIONS
@@ -235,7 +237,7 @@ def check_version():
         latest_version = release_info["tag_name"]
 
         if latest_version:
-            if latest_version > VERSION_STR:
+            if latest_version > AUTO_STR:
                 app = wx.App(False)
                 dlg = wx.MessageDialog(
                     None,
@@ -245,7 +247,7 @@ def check_version():
                 )
                 result = dlg.ShowModal()
                 if result == wx.ID_OK:
-                    webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.1.0")
+                    webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.2.0")
                     dlg.Destroy()
                     # 
                 elif result == wx.ID_NO:
