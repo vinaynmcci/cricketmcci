@@ -26,6 +26,9 @@ import os
 
 # Own modules
 import uiMainApp
+import threading
+import time
+from uiGlobals import check_version
 
 __author__ = 'Seenivasan V'
 __contact__ = 'seenivasanv@mcci.com'
@@ -37,6 +40,7 @@ __version__ = '2.6.0'
 ##############################################################################
 # Utilities
 ##############################################################################
+    
 def main ():
     """
     Main program entry point
@@ -56,7 +60,18 @@ def main ():
     base = os.path.dirname(base)
 
     # Run the application
+    print("uiMainAppRun -1")
     uiMainApp.run()
+    # print("uiMainAppRun -2")
+      # Call check_version from uiGlobals.py after 10 seconds
+    t = threading.Thread(target=delayed_check_version)
+    t.start()
+
+def delayed_check_version():
+    time.sleep(10)
+    check_version()
+    
+    
 
 # python program to use
 # main for function call.

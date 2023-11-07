@@ -31,7 +31,7 @@ import requests
 # GLOBAL VARIABLES
 ##############################################################################
 APP_NAME = "Cricket"
-APP_VERSION = "4.1.0"
+APP_VERSION = "4.4.0"
 
 # StatusBar ID
 SB_PORT_ID   = 0
@@ -220,7 +220,7 @@ VERSION_ID    = ""
 VERSION_COPY  = "\nCopyright "+u"\u00A9"+" 2020-23\nMCCI Corporation"
 VERSION_STR = "Version "+APP_VERSION
 
-AUTO_STR = "v4.3.0"
+AUTO_STR = "v4.4.0"
 
 
 ##############################################################################
@@ -247,7 +247,7 @@ def check_version():
                 )
                 result = dlg.ShowModal()
                 if result == wx.ID_OK:
-                    webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.2.0")
+                    webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.0.0")
                     dlg.Destroy()
                     # 
                 elif result == wx.ID_NO:
@@ -261,7 +261,7 @@ def check_version():
     else:
         print(f"Failed to retrieve information from GitHub. Status code: {response.status_code}")
 
-check_version()
+# check_version()
 class NumericValidator(wx.Validator):
     """
     Validator associated NumericValidator Control.
