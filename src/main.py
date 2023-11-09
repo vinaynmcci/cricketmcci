@@ -59,19 +59,17 @@ def main ():
     # Since this file lives in lib/, get the parent directory
     base = os.path.dirname(base)
     print("uiMainAppRun -2")
-    t = threading.Thread(target=delayed_check_version)
-    # print("----------------------:", t)
-    t.start()
+    
 
     # Run the application
     print("uiMainAppRun -1")
     uiMainApp.run()
-    # print("uiMainAppRun -2")
-      # Call check_version from uiGlobals.py after 10 seconds
+    print("uiMainAppRun -2")
+    delayed_check_version()
     
 
 def delayed_check_version():
-    time.sleep(10)
+    # time.sleep(10)
     check_version()
     
     

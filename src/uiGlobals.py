@@ -31,7 +31,7 @@ import requests
 # GLOBAL VARIABLES
 ##############################################################################
 APP_NAME = "Cricket"
-APP_VERSION = "4.9.0"
+APP_VERSION = "5.0.0"
 
 # StatusBar ID
 SB_PORT_ID   = 0
@@ -220,8 +220,7 @@ VERSION_ID    = ""
 VERSION_COPY  = "\nCopyright "+u"\u00A9"+" 2020-23\nMCCI Corporation"
 VERSION_STR = "Version "+APP_VERSION
 
-AUTO_STR = "v4.8.0"
-
+AUTO_STR = "v5.0.0"
 
 ##############################################################################
 # GLOBAL FUNCTIONS
@@ -238,22 +237,17 @@ def check_version():
 
         if latest_version:
             if latest_version > AUTO_STR:
-                app = wx.App(False)
-                dlg = wx.MessageDialog(
+                # app = wx.App(False)
+                notification  = wx.MessageDialog(
                     None,
                     f"MCCI Cricket UI latest version ({latest_version}) is availble in Github, Please click on OK for more details",
                     "AutoUpdate Notification",
-                    style=wx.OK | wx.CANCEL ,
-                )
-                result = dlg.ShowModal()
+                    style=wx.OK | wx.CANCEL)
+                result = notification.ShowModal()
                 if result == wx.ID_OK:
                     webbrowser.open("https://github.com/mcci-usb/COLLECTION-cricket-ui/releases/tag/v4.0.0")
-                    dlg.Destroy()
-                    # 
-                elif result == wx.ID_NO:
-                    # Implement action for clicking "No" here
-                    pass
-                    dlg.Destroy()
+                    notification.Destroy()
+                
             else:
                 pass
                
