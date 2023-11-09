@@ -31,7 +31,7 @@ import requests
 # GLOBAL VARIABLES
 ##############################################################################
 APP_NAME = "Cricket"
-APP_VERSION = "5.0.0"
+APP_VERSION = "5.1.0"
 
 # StatusBar ID
 SB_PORT_ID   = 0
@@ -220,7 +220,7 @@ VERSION_ID    = ""
 VERSION_COPY  = "\nCopyright "+u"\u00A9"+" 2020-23\nMCCI Corporation"
 VERSION_STR = "Version "+APP_VERSION
 
-AUTO_STR = "v5.0.0"
+AUTO_STR = "v5.1.0"
 
 ##############################################################################
 # GLOBAL FUNCTIONS
